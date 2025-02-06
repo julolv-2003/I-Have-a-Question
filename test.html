@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Question...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url(bckgrnd/Valentines_Day_Option_2.jpeg); /* Change to your GIF path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Countdown Timer
+            const targetDate = new Date("2025-02-14"); // Change to your target date
+            function updateCountdown() {
+                const now = new Date();
+                const timeDiff = targetDate - now;
+                const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+                document.getElementById("countdown").innerText = "There are " + daysLeft + " days until valentine's day so don't take too long.";
+            }
+            updateCountdown();
+            setInterval(updateCountdown, 86400000); // Update every 24 hours
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Will you be my Valentine?</h1>
+        <button class="button yes" onclick="answer('Yes')">Yes</button>
+        
+        <p id="response"></p>
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+        function answer(response) {
+            document.getElementById("response").innerText = "You selected: " + response;
+        }
+    </script>
+</body>
+</html>
